@@ -7,7 +7,7 @@ spec:
   goTemplate: true
   generators:
   - git:
-      repoURL: https://github.com/argoproj/argo-cd.git
+      repoURL: https://github.com/xyang0917/argo-cd.git
       revision: HEAD
       directories:
       - path: applicationset/examples/git-generator-directory/cluster-addons/*
@@ -17,7 +17,7 @@ spec:
     spec:
       project: "default"
       source:
-        repoURL: https://github.com/argoproj/argo-cd.git
+        repoURL: https://github.com/xyang0917/argo-cd.git
         targetRevision: HEAD
         path: '{{.path.path}}'
       destination:
