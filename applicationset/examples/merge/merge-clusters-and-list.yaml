@@ -17,7 +17,8 @@ spec:
           - clusters:
               selector:
                 matchLabels:
-                  use-kafka: 'false'
+                  # use-kafka: 'false'
+                  staging: "true"
               values:
                 kafka: 'false'
           # For a specific cluster, enable Redis.
