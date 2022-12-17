@@ -27,7 +27,7 @@ spec:
                   values.redis: 'true'
   template:
     metadata:
-      name: '{{.name}}'
+      name: '{{.nameNormalized}}-guestbook'
     spec:
       project: default
       source:
