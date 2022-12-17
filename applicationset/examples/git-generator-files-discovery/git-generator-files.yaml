@@ -13,6 +13,13 @@ spec:
   template:
     metadata:
       name: '{{.cluster.name}}-guestbook'
+      annoations:
+        aws-account: '{{.aws_account}}'
+        aws-id: '{{.aws_account}}'
+        file-name: '{{.path.filename}}'
+        file-path: '{{.path.path}}'
+      labels:
+        env: '{{.path.basename}}'
     spec:
       project: default
       source:
