@@ -21,16 +21,18 @@ spec:
           - cluster: engineering-dev
             url: https://172.16.203.51:6443
             values:
-              project: dev
+              env: dev
           - cluster: engineering-prod
             url: https://172.16.203.52:6443
             values:
-              project: prod
+              env: prod
   template:
     metadata:
       name: '{{.path.basename}}-{{.cluster}}'
+      labels:
+        app-env: '{{.values.env}}'
     spec:
-      project: '{{.values.project}}'
+      project: 'default'
       source:
         repoURL: https://github.com/xyang0917/argo-cd.git
         targetRevision: HEAD
