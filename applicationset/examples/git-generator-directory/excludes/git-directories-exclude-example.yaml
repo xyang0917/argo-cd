@@ -21,7 +21,7 @@ spec:
       source:
         repoURL: https://github.com/xyang0917/argo-cd.git
         targetRevision: HEAD
-        path: '{{.path}}'
+        path: '{{.path.path}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{.path.basename}}'
