@@ -6,6 +6,7 @@ spec:
   goTemplate: true
   generators:
   - scmProvider:
+      cloneProtocol: ssh
       gitlab:
         # The base GitLab group to scan.  You can either use the group id or the full namespaced path.
         group: "xyang09171"
