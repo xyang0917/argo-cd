@@ -27,7 +27,7 @@ spec:
       source:
         repoURL: '{{ .url }}'
         targetRevision: '{{ .branch }}'
-        path: guestbook
+        path: applicationset/examples/git-generator-files-discovery
       destination:
         server: https://kubernetes.default.svc
         namespace: guestbook
