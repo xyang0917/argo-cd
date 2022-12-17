@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook
+spec:
+  goTemplate: true
+  generators:
+  - scmProvider:
+      gitlab:
+        # The base GitLab group to scan.  You can either use the group id or the full namespaced path.
+        group: "xyang09171"
+        # For self-hosted GitLab:
+        api: https://gitlab.com/
+        # If true, scan every branch of every repository. If false, scan only the default branch. Defaults to false.
+        allBranches: false
+        # If true, recurses through subgroups. If false, it searches only in the base group. Defaults to false.
+        includeSubgroups: true
+        # Reference to a Secret containing an access token. (optional)
+        tokenRef:
+          secretName: gitlab-token
+          key: token
+  template:
+    metadata:
+      name: '{{ .repository }}-guestbook'
+    spec:
+      project: "default"
+      source:
+        repoURL: '{{ .url }}'
+        targetRevision: '{{ .branch }}'
+        path: guestbook
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: guestbook
