@@ -12,18 +12,18 @@ spec:
   - matrix:
       generators:
       - git:
-          repoURL: https://github.com/argoproj/argo-cd.git
+          repoURL: https://github.com/xyang0917/argo-cd.git
           revision: HEAD
           directories:
           - path: applicationset/examples/matrix/cluster-addons/*
       - list:
           elements:
           - cluster: engineering-dev
-            url: https://1.2.3.4
+            url: https://172.16.203.51:6443
             values:
               project: dev
           - cluster: engineering-prod
-            url: https://2.4.6.8
+            url: https://172.16.203.52:6443
             values:
               project: prod
   template:
@@ -32,7 +32,7 @@ spec:
     spec:
       project: '{{.values.project}}'
       source:
-        repoURL: https://github.com/argoproj/argo-cd.git
+        repoURL: https://github.com/xyang0917/argo-cd.git
         targetRevision: HEAD
         path: '{{.path.path}}'
       destination:
